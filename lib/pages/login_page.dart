@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/register');
               },
-              child: const Text('Register'),
+              child: const Text('Register your account'),
             ),
           ],
         ),

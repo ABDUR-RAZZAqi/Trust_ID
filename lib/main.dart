@@ -39,14 +39,14 @@ class TrustidApp extends StatelessWidget {
         '/profile': (context) => const ProfilePage(),
         '/settings': (context) => const SettingsPage(),
         '/id_verification': (context) => const IdVerificationPage(),
-        '/terms_conditions': (context) => const TermsConditionsPage(),  // New route
-        '/help_support': (context) => const HelpSupportPage(),  // New route
-        '/notifications': (context) => const NotificationsPage(),  // New route
-        '/trust_history': (context) => const TrustHistoryPage(),  // New route
-        '/about_us': (context) => const AboutUsPage(),  // New route
-        '/feedback': (context) => const FeedbackPage(),  // New route
-        '/verification_status': (context) => const VerificationStatusPage(),  // New route
+        '/terms_conditions': (context) => const TermsConditionsPage(),
+        '/help_support': (context) => const HelpSupportPage(), 
+        '/notifications': (context) => const NotificationsPage(),  
+        '/trust_history': (context) => const TrustHistoryPage(),  
+        '/about_us': (context) => const AboutUsPage(),  
+        '/feedback': (context) => const FeedbackPage(),  
+        '/verification_status': (context) => const VerificationStatusPage(),  
       },
-    );
+    debugShowCheckedModeBanner: false);
   }
 }
