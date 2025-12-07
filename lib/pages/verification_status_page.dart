@@ -37,6 +37,13 @@ class VerificationStatusPage extends StatelessWidget {
               },
               child: const Text('Re-verify ID'),
             ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/trust_history');
+              },
+              child: const Text('Check History'),
+            ),
           ],
         ),
       ),

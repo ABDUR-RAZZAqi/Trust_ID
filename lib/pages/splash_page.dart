@@ -5,7 +5,7 @@ class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
 
   @override
-  _SplashPageState createState() => _SplashPageState();
+  State<SplashPage> createState() => _SplashPageState();
 }
 
 class _SplashPageState extends State<SplashPage> {
@@ -36,6 +36,14 @@ class _SplashPageState extends State<SplashPage> {
               style: TextStyle(
                 fontSize: 32,
                 fontWeight: FontWeight.bold,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+            ),
+            Text(
+              "Secure Identity Authentication",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.normal,
                 color: Theme.of(context).colorScheme.onPrimary,
               ),
             ),

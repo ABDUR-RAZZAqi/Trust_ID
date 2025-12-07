@@ -16,8 +16,9 @@ class _SettingsPageState extends State<SettingsPage> {
     return Scaffold(
       appBar: AppBar(title: const Text('Settings')),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.fromLTRB(20, 10, 20, 40),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SwitchListTile(
               title: const Text('Enable Notifications'),
@@ -37,6 +38,26 @@ class _SettingsPageState extends State<SettingsPage> {
                 });
                 // Implement theme toggle logic here
               },
+            ),
+            Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/about_us');
+                  },
+                  child: Text("About Us"),
+                ),
+                SizedBox(width: 30),
+                TextButton.icon(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/help_support');
+                  },
+                  label: Text("Help & Support"),
+                  icon: Icon(Icons.support_agent),
+                ),
+              ],
             ),
           ],
         ),
