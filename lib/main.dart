@@ -1,3 +1,4 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'pages/splash_page.dart';
 import 'pages/login_page.dart';
@@ -18,7 +19,14 @@ import 'pages/verification_status_page.dart';
 final kcolorScheme = ColorScheme.fromSeed(seedColor: Color(0xff3712A5));
 
 void main() {
-  runApp(const TrustidApp());
+  runApp(
+  DevicePreview(
+    enabled: true,
+    tools: [...DevicePreview.defaultTools,
+    ],
+    builder: (context) => TrustidApp())
+  )
+  ;
 }
 
 class TrustidApp extends StatelessWidget {
