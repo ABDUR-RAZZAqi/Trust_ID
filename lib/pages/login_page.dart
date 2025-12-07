@@ -42,15 +42,16 @@ class _LoginPageState extends State<LoginPage> {
               obscureText: true,
             ),
             const SizedBox(height: 20),
+            TextButton(onPressed: () {Navigator.pushReplacementNamed(context, '/forgot_password');}, child: const Text('Forgot Password?')),
+            const SizedBox(height: 10),
             ElevatedButton(onPressed: _login, child: const Text('Login')),
             TextButton(
               onPressed: () {
                 Navigator.pushReplacementNamed(context, '/register');
               },
-              child: const Text('Register'),
+              child: const Text('Register your account'),
             ),
-          ],
-        ),
+      ]),
       ),
     );
   }
