@@ -8,25 +8,24 @@ import 'pages/home_page.dart';
 import 'pages/profile_page.dart';
 import 'pages/settings_page.dart';
 import 'pages/id_verification_page.dart';
-import 'pages/terms_conditions_page.dart';  
-import 'pages/help_support_page.dart';  
-import 'pages/notifications_page.dart';  
-import 'pages/trust_history_page.dart';  
-import 'pages/about_us_page.dart';  
-import 'pages/feedback_page.dart';  
-import 'pages/verification_status_page.dart';  
+import 'pages/terms_conditions_page.dart';
+import 'pages/help_support_page.dart';
+import 'pages/notifications_page.dart';
+import 'pages/trust_history_page.dart';
+import 'pages/about_us_page.dart';
+import 'pages/feedback_page.dart';
+import 'pages/verification_status_page.dart';
 
 final kcolorScheme = ColorScheme.fromSeed(seedColor: Color(0xff3712A5));
 
 void main() {
   runApp(
-  DevicePreview(
-    enabled: true,
-    tools: [...DevicePreview.defaultTools,
-    ],
-    builder: (context) => TrustidApp())
-  )
-  ;
+    DevicePreview(
+      enabled: true,
+      tools: [...DevicePreview.defaultTools],
+      builder: (context) => TrustidApp(),
+    ),
+  );
 }
 
 class TrustidApp extends StatelessWidget {
@@ -48,13 +47,14 @@ class TrustidApp extends StatelessWidget {
         '/settings': (context) => const SettingsPage(),
         '/id_verification': (context) => const IdVerificationPage(),
         '/terms_conditions': (context) => const TermsConditionsPage(),
-        '/help_support': (context) => const HelpSupportPage(), 
-        '/notifications': (context) => const NotificationsPage(),  
-        '/trust_history': (context) => const TrustHistoryPage(),  
-        '/about_us': (context) => const AboutUsPage(),  
-        '/feedback': (context) => const FeedbackPage(),  
-        '/verification_status': (context) => const VerificationStatusPage(),  
+        '/help_support': (context) => const HelpSupportPage(),
+        '/notifications': (context) => const NotificationsPage(),
+        '/trust_history': (context) => const TrustHistoryPage(),
+        '/about_us': (context) => const AboutUsPage(),
+        '/feedback': (context) => const FeedbackPage(),
+        '/verification_status': (context) => const VerificationStatusPage(),
       },
-    debugShowCheckedModeBanner: false);
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
