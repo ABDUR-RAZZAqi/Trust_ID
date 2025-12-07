@@ -8,8 +8,8 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final _nameController = TextEditingController(text: 'John Doe');
-  final _emailController = TextEditingController(text: 'john@example.com');
+  // final _nameController = TextEditingController(text: 'John Doe');
+  // final _emailController = TextEditingController(text: 'john@example.com');
 
   void _saveProfile() {
     // Mock save logic
@@ -36,14 +36,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             const SizedBox(height: 20),
-            TextField(
-              controller: _nameController,
-              decoration: const InputDecoration(labelText: 'Name'),
-            ),
-            TextField(
-              controller: _emailController,
-              decoration: const InputDecoration(labelText: 'Email'),
-            ),
+        
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: _saveProfile,

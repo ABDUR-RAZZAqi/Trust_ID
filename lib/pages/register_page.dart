@@ -4,7 +4,7 @@ class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
   @override
-  _RegisterPageState createState() => _RegisterPageState();
+  State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
@@ -13,8 +13,16 @@ class _RegisterPageState extends State<RegisterPage> {
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
 
+  @override
+  void dispose() {
+    _nameController;
+    _emailController;
+    _passwordController;
+    _confirmPasswordController;
+    super.dispose();
+  }
+
   void _register() {
-    // Mock registration logic (replace with real auth)
     if (_nameController.text.isNotEmpty &&
         _emailController.text.isNotEmpty &&
         _passwordController.text == _confirmPasswordController.text &&
@@ -25,7 +33,9 @@ class _RegisterPageState extends State<RegisterPage> {
       Navigator.pushReplacementNamed(context, '/login');
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Please fill all fields and ensure passwords match')),
+        const SnackBar(
+          content: Text('Please fill all fields and ensure passwords match'),
+        ),
       );
     }
   }
@@ -58,10 +68,7 @@ class _RegisterPageState extends State<RegisterPage> {
               obscureText: true,
             ),
             const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _register,
-              child: const Text('Register'),
-            ),
+            ElevatedButton(onPressed: _register, child: const Text('Register')),
             TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/login');

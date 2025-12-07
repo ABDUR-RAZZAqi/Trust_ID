@@ -5,7 +5,7 @@ class TrustHistoryPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Mock data
+    
     final history = [
       {'date': '2023-10-01', 'score': '80%', 'activity': 'ID Verified'},
       {'date': '2023-09-15', 'score': '75%', 'activity': 'Profile Updated'},

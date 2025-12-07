@@ -5,9 +5,34 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final List<Widget> homepageBody = [];
     return Scaffold(
+      floatingActionButton: GestureDetector(
+        onTap: () {
+          Navigator.pushNamed(context, '/feedback');
+        },
+        child: Card(
+          shadowColor: Colors.blueGrey,
+          elevation: 2,
+          child: Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).colorScheme.primary,
+              borderRadius: BorderRadius.circular(5),
+            ),
+            padding: EdgeInsets.all(10),
+
+            child: Icon(Icons.chat, color: Colors.white, size: 30),
+          ),
+        ),
+      ),
       appBar: AppBar(
-        title: const Text('Home'),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        foregroundColor: Colors.white,
+        title: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [Icon(Icons.verified_user), const Text('Trust ID')],
+        ),
+        centerTitle: true,
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
@@ -45,9 +70,9 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/id_verification');
+                Navigator.pushNamed(context, '/verification_status');
               },
-              child: const Text('Verify ID'),
+              child: const Text('Show ID Status'),
             ),
           ],
         ),
@@ -56,7 +81,10 @@ class HomePage extends StatelessWidget {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
+          ),
         ],
         onTap: (index) {
           if (index == 1) Navigator.pushNamed(context, '/profile');
