@@ -6,7 +6,7 @@ class HelpSupportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // 🔷 Gradient AppBar (same across app)
+      // Gradient AppBar (same across app)
       appBar: AppBar(
         title: const Text('Help & Support'),
         centerTitle: true,
@@ -25,7 +25,7 @@ class HelpSupportPage extends StatelessWidget {
         ),
       ),
 
-      // 🔷 Gradient Background
+      //  Gradient Background
       body: Container(
         width: double.infinity,
         height: double.infinity,

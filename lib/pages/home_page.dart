@@ -6,7 +6,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // 🔷 Floating Feedback Button
+      //  Floating Feedback Button
       floatingActionButton: GestureDetector(
         onTap: () {
           Navigator.pushNamed(context, '/feedback');
@@ -27,7 +27,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      // 🔷 Gradient AppBar
+      //  Gradient AppBar
       appBar: AppBar(
         title: const Text('Trust ID'),
         centerTitle: true,
@@ -54,15 +54,15 @@ class HomePage extends StatelessWidget {
         ],
       ),
 
-      // 🔷 Gradient Background
+      //  Gradient Background
       body: Container(
         width: double.infinity,
         height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color(0xFFE3F2FD),
-              Color(0xFFFFFFFF),
+              // Color(0xFFE3F2FD),
+              // Color(0xFFFFFFFF),
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            // 🔹 Trust Score Card
+            //  Trust Score Card
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -98,7 +98,7 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // 🔹 Business Verification Requests
+            //  Business Verification Requests
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -140,7 +140,7 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // 🔹 Trust Analytics Card
+            //  Trust Analytics Card
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -193,7 +193,7 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // 🔹 Compliance & Audit Logs
+            //  Compliance & Audit Logs
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -237,7 +237,7 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // 🔹 Verification Status Shortcut
+            //  Verification Status Shortcut
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -252,7 +252,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      // 🔷 GRADIENT Bottom Navigation (MATCHES APPBAR)
+      //  GRADIENT Bottom Navigation (MATCHES APPBAR)
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(

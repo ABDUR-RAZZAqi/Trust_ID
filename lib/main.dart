@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:trustid/theme.dart';
 import 'pages/splash_page.dart';
 import 'pages/login_page.dart';
 import 'pages/register_page.dart';
@@ -35,6 +36,7 @@ class TrustidApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Trust ID',
+      darkTheme: darkMode,
       theme: ThemeData(
         primaryColor: const Color.fromARGB(255, 83, 20, 112),
         scaffoldBackgroundColor: Color.fromARGB(255, 242, 242, 242),

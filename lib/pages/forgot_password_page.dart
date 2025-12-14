@@ -26,7 +26,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // 🔷 Gradient AppBar (same as About Us)
+      //  Gradient AppBar (same as About Us)
       appBar: AppBar(
         title: const Text('Forgot Password'),
         centerTitle: true,
@@ -45,7 +45,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         ),
       ),
 
-      // 🔷 Gradient Background (same as About Us)
+      //  Gradient Background (same as About Us)
       body: Container(
         width: double.infinity,
         height: double.infinity,

@@ -26,7 +26,7 @@ class _FeedbackPageState extends State<FeedbackPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // 🔷 Gradient AppBar (same as About Us)
+      //  Gradient AppBar (same as About Us)
       appBar: AppBar(
         title: const Text('Feedback'),
         centerTitle: true,
@@ -45,7 +45,7 @@ class _FeedbackPageState extends State<FeedbackPage> {
         ),
       ),
 
-      // 🔷 Gradient Body (same as About Us)
+      //  Gradient Body (same as About Us)
       body: Container(
         width: double.infinity,
         height: double.infinity,

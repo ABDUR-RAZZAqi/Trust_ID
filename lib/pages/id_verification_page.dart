@@ -64,7 +64,7 @@ class _IdVerificationPageState extends State<IdVerificationPage> {
     }
 
     return Scaffold(
-      // 🔷 Gradient AppBar
+      //  Gradient AppBar
       appBar: AppBar(
         title: const Text('ID Verification'),
         centerTitle: true,
@@ -83,7 +83,7 @@ class _IdVerificationPageState extends State<IdVerificationPage> {
         ),
       ),
 
-      // 🔷 Gradient Background
+      //  Gradient Background
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -111,7 +111,7 @@ class _IdVerificationPageState extends State<IdVerificationPage> {
               ),
               const SizedBox(height: 20),
 
-              // 🔷 Image Capture Card
+              //  Image Capture Card
               GestureDetector(
                 onTap: _takePicture,
                 child: Card(
@@ -139,7 +139,7 @@ class _IdVerificationPageState extends State<IdVerificationPage> {
 
               const Spacer(),
 
-              // 🔷 Verify Button
+              //  Verify Button
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(

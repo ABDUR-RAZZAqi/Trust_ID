@@ -25,7 +25,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // 🔷 Gradient AppBar
+      //  Gradient AppBar
       appBar: AppBar(
         title: const Text('Login'),
         centerTitle: true,
@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
 
-      // 🔷 Gradient Background
+      //  Gradient Background
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -152,6 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.pushReplacementNamed(context, '/register');
                       },
                       child: const Text('Register your account'),
+                    
                     ),
                   ],
                 ),
