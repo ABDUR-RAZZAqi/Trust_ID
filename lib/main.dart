@@ -35,7 +35,22 @@ class TrustidApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Trust ID',
-      theme: ThemeData.from(colorScheme: kcolorScheme),
+      theme: ThemeData(
+        primaryColor: const Color.fromARGB(255, 83, 20, 112),
+        scaffoldBackgroundColor: Color.fromARGB(255, 242, 242, 242),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color.fromARGB(206, 96, 21, 150),
+          foregroundColor: Color.fromARGB(255, 254, 254, 254),
+          centerTitle: true,
+        ),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+          ),
+          ),
+        ),
+      ),
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashPage(),

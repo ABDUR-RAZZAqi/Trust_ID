@@ -8,7 +8,7 @@ class FeedbackPage extends StatefulWidget {
 }
 
 class _FeedbackPageState extends State<FeedbackPage> {
-  final _feedbackController = TextEditingController();
+  final TextEditingController _feedbackController = TextEditingController();
 
   void _submitFeedback() {
     if (_feedbackController.text.isNotEmpty) {
@@ -17,36 +17,115 @@ class _FeedbackPageState extends State<FeedbackPage> {
       );
       Navigator.pop(context);
     } else {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text('Please enter feedback')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Please enter feedback')),
+      );
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Feedback')),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            const Text('Share your thoughts about Trust ID'),
-            const SizedBox(height: 10),
-            TextField(
-              controller: _feedbackController,
-              maxLines: 5,
-              decoration: const InputDecoration(
-                labelText: 'Your Feedback',
-                border: OutlineInputBorder(),
+      // 🔷 Gradient AppBar (same as About Us)
+      appBar: AppBar(
+        title: const Text('Feedback'),
+        centerTitle: true,
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [
+                Color(0xFF0F2027),
+                Color(0xFF203A43),
+                Color(0xFF2C5364),
+              ],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
+      ),
+
+      // 🔷 Gradient Body (same as About Us)
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFFE3F2FD),
+              Color(0xFFFFFFFF),
+            ],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Title
+              Text(
+                'We Value Your Feedback',
+                style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.blueGrey[900],
+                    ),
               ),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _submitFeedback,
-              child: const Text('Submit'),
-            ),
-          ],
+
+              const SizedBox(height: 10),
+
+              const Text(
+                'Share your thoughts and help us improve Trust ID.',
+                style: TextStyle(
+                  fontSize: 16,
+                  height: 1.5,
+                  color: Colors.black87,
+                ),
+              ),
+
+              const SizedBox(height: 25),
+
+              // Feedback Field
+              TextField(
+                controller: _feedbackController,
+                maxLines: 6,
+                decoration: InputDecoration(
+                  labelText: 'Your Feedback',
+                  alignLabelWithHint: true,
+                  filled: true,
+                  fillColor: Colors.white,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 30),
+
+              // Submit Button
+              Center(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 30,
+                      vertical: 14,
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    backgroundColor: Colors.blueGrey[800],
+                  ),
+                  onPressed: _submitFeedback,
+                  child: const Text(
+                    'Submit Feedback',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
