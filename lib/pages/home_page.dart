@@ -5,6 +5,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Brightness brightness = Theme.of(context).brightness;
     return Scaffold(
       //  Floating Feedback Button
       floatingActionButton: GestureDetector(
@@ -13,9 +14,7 @@ class HomePage extends StatelessWidget {
         },
         child: Card(
           elevation: 3,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           child: Container(
             padding: const EdgeInsets.all(10),
             decoration: BoxDecoration(
@@ -34,11 +33,7 @@ class HomePage extends StatelessWidget {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [
-                Color(0xFF0F2027),
-                Color(0xFF203A43),
-                Color(0xFF2C5364),
-              ],
+              colors: [Color(0xFF0F2027), Color(0xFF203A43), Color(0xFF2C5364)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -58,12 +53,11 @@ class HomePage extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              // Color(0xFFE3F2FD),
-              // Color(0xFFFFFFFF),
-            ],
+            colors: brightness == Brightness.light
+                ? [Color(0xFFE3F2FD), Color(0xFFFFFFFF)]
+                : [Colors.black54, Colors.black12],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
@@ -79,17 +73,14 @@ class HomePage extends StatelessWidget {
                   children: [
                     Text(
                       'Trust Score: 85%',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall
+                      style: Theme.of(context).textTheme.headlineSmall
                           ?.copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 10),
                     LinearProgressIndicator(
                       value: 0.85,
                       backgroundColor: Colors.grey[300],
-                      valueColor:
-                          const AlwaysStoppedAnimation(Colors.green),
+                      valueColor: const AlwaysStoppedAnimation(Colors.green),
                     ),
                   ],
                 ),
@@ -107,8 +98,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Row(
                       children: const [
-                        Icon(Icons.business_center,
-                            color: Colors.blueGrey),
+                        Icon(Icons.business_center, color: Colors.blueGrey),
                         SizedBox(width: 8),
                         Text(
                           'Business Verifications',
@@ -128,7 +118,9 @@ class HomePage extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.pushNamed(
-                              context, '/verification_requests');
+                            context,
+                            '/verification_requests',
+                          );
                         },
                         child: const Text('View Requests'),
                       ),
@@ -149,8 +141,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Row(
                       children: const [
-                        Icon(Icons.analytics,
-                            color: Colors.blueGrey),
+                        Icon(Icons.analytics, color: Colors.blueGrey),
                         SizedBox(width: 8),
                         Text(
                           'Trust Analytics',
@@ -173,8 +164,7 @@ class HomePage extends StatelessWidget {
                     LinearProgressIndicator(
                       value: 0.85,
                       backgroundColor: Colors.grey[300],
-                      valueColor:
-                          const AlwaysStoppedAnimation(Colors.green),
+                      valueColor: const AlwaysStoppedAnimation(Colors.green),
                     ),
                     const SizedBox(height: 12),
                     SizedBox(
@@ -202,8 +192,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Row(
                       children: const [
-                        Icon(Icons.shield,
-                            color: Colors.blueGrey),
+                        Icon(Icons.shield, color: Colors.blueGrey),
                         SizedBox(width: 8),
                         Text(
                           'Compliance & Audits',
@@ -242,8 +231,7 @@ class HomePage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Navigator.pushNamed(
-                      context, '/verification_status');
+                  Navigator.pushNamed(context, '/verification_status');
                 },
                 child: const Text('Show ID Status'),
               ),
@@ -256,11 +244,7 @@ class HomePage extends StatelessWidget {
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFF0F2027),
-              Color(0xFF203A43),
-              Color(0xFF2C5364),
-            ],
+            colors: [Color(0xFF0F2027), Color(0xFF203A43), Color(0xFF2C5364)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -272,14 +256,8 @@ class HomePage extends StatelessWidget {
           unselectedItemColor: Colors.white70,
           currentIndex: 0,
           items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+            BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),
               label: 'Settings',

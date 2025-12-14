@@ -34,6 +34,7 @@ class TrustidApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Brightness brightness = Brightness.light;
     return MaterialApp(
       title: 'Trust ID',
       darkTheme: darkMode,
@@ -46,10 +47,11 @@ class TrustidApp extends StatelessWidget {
           centerTitle: true,
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(foregroundColor: Colors.white,
+          style: ElevatedButton.styleFrom(
+            foregroundColor: Colors.white,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
-          ),
+            ),
           ),
         ),
       ),
