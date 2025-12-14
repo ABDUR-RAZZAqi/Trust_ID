@@ -24,11 +24,7 @@ class _SettingsPageState extends State<SettingsPage> {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [
-                Color(0xFF0F2027),
-                Color(0xFF203A43),
-                Color(0xFF2C5364),
-              ],
+              colors: [Color(0xFF0F2027), Color(0xFF203A43), Color(0xFF2C5364)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -40,7 +36,7 @@ class _SettingsPageState extends State<SettingsPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration:  BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: brightness == Brightness.light
                 ? [Color(0xFFE3F2FD), Color(0xFFFFFFFF)]
@@ -142,9 +138,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     trailing: const Icon(Icons.chevron_right),
                     onTap: () {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(
-                          content: Text('Downloading report...'),
-                        ),
+                        const SnackBar(content: Text('Downloading report...')),
                       );
                     },
                   ),

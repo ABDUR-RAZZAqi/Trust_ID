@@ -24,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-   Brightness brightness = Theme.of(context).brightness; 
+    Brightness brightness = Theme.of(context).brightness;
     return Scaffold(
       //  Gradient AppBar
       appBar: AppBar(
@@ -33,11 +33,7 @@ class _LoginPageState extends State<LoginPage> {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [
-                Color(0xFF0F2027),
-                Color(0xFF203A43),
-                Color(0xFF2C5364),
-              ],
+              colors: [Color(0xFF0F2027), Color(0xFF203A43), Color(0xFF2C5364)],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
@@ -73,9 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       'Welcome Back',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headlineSmall
+                      style: Theme.of(context).textTheme.headlineSmall
                           ?.copyWith(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 10),
@@ -114,19 +108,24 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 10),
 
                     Align(
+                      key: GlobalKey(),
                       alignment: Alignment.centerRight,
                       child: TextButton(
                         onPressed: () {
                           Navigator.pushReplacementNamed(
-                              context, '/forgot_password');
+                            context,
+                            '/forgot_password',
+                          );
                         },
-                        child: const Text('Forgot Password?', style: TextStyle(color: Colors.blueGrey),),
+                        child: const Text(
+                          'Forgot Password?',
+                          style: TextStyle(color: Colors.blueGrey),
+                        ),
                       ),
                     ),
-
                     const SizedBox(height: 10),
 
-                    // Login Button
+                    // // Login Button
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
@@ -148,11 +147,11 @@ class _LoginPageState extends State<LoginPage> {
                     const SizedBox(height: 16),
 
                     TextButton(
+                      key: GlobalKey(),
                       onPressed: () {
-                        Navigator.pushReplacementNamed(context, '/register');
+                        Navigator.pushNamed(context, '/register');
                       },
                       child: const Text('Register your account'),
-                    
                     ),
                   ],
                 ),
