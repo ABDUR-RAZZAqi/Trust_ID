@@ -193,17 +193,19 @@ class _SettingsPageState extends State<SettingsPage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     TextButton(
+                      key: GlobalKey(),
                       onPressed: () {
                         Navigator.pushNamed(context, '/about_us');
                       },
-                      child: const Text('About Us'),
+                      child: const Text('About Us', style: TextStyle(color: Colors.blueGrey)),
                     ),
                     TextButton.icon(
+                      key: GlobalKey(),
                       onPressed: () {
                         Navigator.pushNamed(context, '/help_support');
                       },
                       icon: const Icon(Icons.support_agent),
-                      label: const Text('Help & Support'),
+                      label: const Text('Help & Support', style: TextStyle(color: Colors.blueGrey)),
                     ),
                   ],
                 ),

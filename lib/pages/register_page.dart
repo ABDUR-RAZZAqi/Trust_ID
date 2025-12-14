@@ -180,10 +180,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     const SizedBox(height: 16),
 
                     TextButton(
+                      key: GlobalKey(),
                       onPressed: () {
                         Navigator.pushReplacementNamed(context, '/login');
                       },
-                      child: const Text('Already have an account? Login'),
+                      child: const Text('Already have an account? Login', style: TextStyle(color: Colors.blueGrey),),
                     ),
                   ],
                 ),

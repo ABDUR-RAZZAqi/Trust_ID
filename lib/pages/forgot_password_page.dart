@@ -29,7 +29,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
     return Scaffold(
       //  Gradient AppBar (same as About Us)
       appBar: AppBar(
-        title: const Text('Forgot Password'),
+        title: const Text('Change Password'),
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
@@ -127,6 +127,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
                 // Back to Login
                 TextButton(
+                  key: GlobalKey(),
                   onPressed: () {
                     Navigator.pushNamed(context, '/login');
                   },
