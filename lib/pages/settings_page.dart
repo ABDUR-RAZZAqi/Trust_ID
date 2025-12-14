@@ -10,6 +10,8 @@ class SettingsPage extends StatefulWidget {
 class _SettingsPageState extends State<SettingsPage> {
   bool _notificationsEnabled = true;
   bool _darkMode = false;
+  bool _biometricEnabled = true;
+  bool _dataSharing = true;
 
   @override
   Widget build(BuildContext context) {
@@ -47,76 +49,173 @@ class _SettingsPageState extends State<SettingsPage> {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: Padding(
+        child: ListView(
           padding: const EdgeInsets.fromLTRB(20, 20, 20, 30),
-          child: Column(
-            children: [
-              // 🔷 Preferences Card
-              Card(
-                elevation: 3,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Column(
-                  children: [
-                    SwitchListTile(
-                      title: const Text('Enable Notifications'),
-                      secondary: const Icon(Icons.notifications),
-                      value: _notificationsEnabled,
-                      onChanged: (value) {
-                        setState(() {
-                          _notificationsEnabled = value;
-                        });
-                      },
+          children: [
+            // 🔷 PREFERENCES
+            Card(
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                children: [
+                  SwitchListTile(
+                    title: const Text('Enable Notifications'),
+                    secondary: const Icon(Icons.notifications),
+                    value: _notificationsEnabled,
+                    onChanged: (value) {
+                      setState(() {
+                        _notificationsEnabled = value;
+                      });
+                    },
+                  ),
+                  const Divider(height: 1),
+                  SwitchListTile(
+                    title: const Text('Dark Mode'),
+                    secondary: const Icon(Icons.dark_mode),
+                    value: _darkMode,
+                    onChanged: (value) {
+                      setState(() {
+                        _darkMode = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            // 🔷 SECURITY SETTINGS
+            Card(
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                children: [
+                  SwitchListTile(
+                    title: const Text('Biometric Login'),
+                    secondary: const Icon(Icons.fingerprint),
+                    value: _biometricEnabled,
+                    onChanged: (value) {
+                      setState(() {
+                        _biometricEnabled = value;
+                      });
+                    },
+                  ),
+                  const Divider(height: 1),
+                  ListTile(
+                    leading: const Icon(Icons.timer),
+                    title: const Text('Session Timeout'),
+                    subtitle: const Text('Auto logout after 10 minutes'),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            // 🔷 COMPLIANCE & PRIVACY
+            Card(
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                children: [
+                  SwitchListTile(
+                    title: const Text('Data Sharing Consent'),
+                    secondary: const Icon(Icons.privacy_tip),
+                    value: _dataSharing,
+                    onChanged: (value) {
+                      setState(() {
+                        _dataSharing = value;
+                      });
+                    },
+                  ),
+                  const Divider(height: 1),
+                  ListTile(
+                    leading: const Icon(Icons.download),
+                    title: const Text('Download Compliance Report'),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Downloading report...'),
+                        ),
+                      );
+                    },
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 30),
+
+            // 🔷 ACCOUNT ACTIONS
+            Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                children: [
+                  ListTile(
+                    leading: const Icon(Icons.lock_reset),
+                    title: const Text('Change Password'),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () {
+                      Navigator.pushNamed(context, '/forgot_password');
+                    },
+                  ),
+                  const Divider(height: 1),
+                  ListTile(
+                    leading: const Icon(Icons.logout, color: Colors.red),
+                    title: const Text(
+                      'Logout',
+                      style: TextStyle(color: Colors.red),
                     ),
-                    const Divider(height: 1),
-                    SwitchListTile(
-                      title: const Text('Dark Mode'),
-                      secondary: const Icon(Icons.dark_mode),
-                      value: _darkMode,
-                      onChanged: (value) {
-                        setState(() {
-                          _darkMode = value;
-                        });
-                        // Hook this to ThemeProvider later
+                    onTap: () {
+                      Navigator.pushReplacementNamed(context, '/login');
+                    },
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 30),
+
+            // 🔷 INFO LINKS
+            Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/about_us');
                       },
+                      child: const Text('About Us'),
+                    ),
+                    TextButton.icon(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/help_support');
+                      },
+                      icon: const Icon(Icons.support_agent),
+                      label: const Text('Help & Support'),
                     ),
                   ],
                 ),
               ),
-
-              const Spacer(),
-
-             
-              Card(
-                elevation: 2,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/about_us');
-                        },
-                        child: const Text('About Us'),
-                      ),
-                      TextButton.icon(
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/help_support');
-                        },
-                        icon: const Icon(Icons.support_agent),
-                        label: const Text('Help & Support'),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

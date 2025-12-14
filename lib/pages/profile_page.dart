@@ -50,74 +50,179 @@ class _ProfilePageState extends State<ProfilePage> {
             end: Alignment.bottomCenter,
           ),
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            children: [
-              const SizedBox(height: 20),
+        child: ListView(
+          padding: const EdgeInsets.all(20),
+          children: [
+            const SizedBox(height: 10),
 
-              // 🔷 Profile Avatar Card
-              Card(
-                elevation: 3,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 30,
-                    horizontal: 20,
-                  ),
-                  child: Column(
-                    children: [
-                      CircleAvatar(
-                        radius: 55,
-                        backgroundColor: Colors.blueGrey[800],
-                        child: const Icon(
-                          Icons.person,
-                          size: 55,
-                          color: Colors.white,
+            // 🔷 PROFILE HEADER
+            Card(
+              elevation: 3,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                child: Column(
+                  children: [
+                    CircleAvatar(
+                      radius: 55,
+                      backgroundColor: Colors.blueGrey,
+                      child: const Icon(
+                        Icons.person,
+                        size: 55,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      'John Doe',
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium
+                          ?.copyWith(fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(height: 6),
+                    Text(
+                      'john@example.com',
+                      style: TextStyle(color: Colors.grey[600]),
+                    ),
+                    const SizedBox(height: 20),
+
+                    // 🔹 TRUST SCORE
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: const [
+                        Text('Trust Score'),
+                        Text(
+                          '85%',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.green,
+                          ),
                         ),
-                      ),
-                      const SizedBox(height: 16),
-                      Text(
-                        'John Doe',
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(height: 6),
-                      Text(
-                        'john@example.com',
-                        style: TextStyle(color: Colors.grey[600]),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
+                    const SizedBox(height: 6),
+                    LinearProgressIndicator(
+                      value: 0.85,
+                      backgroundColor: Colors.grey,
+                      valueColor:
+                          AlwaysStoppedAnimation<Color>(Colors.green),
+                    ),
+                  ],
                 ),
               ),
+            ),
 
-              const Spacer(),
+            const SizedBox(height: 20),
 
-              // 🔷 Save Button
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(vertical: 14),
-                    backgroundColor: Colors.blueGrey[800],
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+            // 🔷 ACCOUNT DETAILS
+            Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                children: const [
+                  ListTile(
+                    leading: Icon(Icons.verified_user),
+                    title: Text('Verification Status'),
+                    trailing: Text(
+                      'Verified',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                  onPressed: _saveProfile,
-                  child: const Text(
-                    'Save Profile',
-                    style: TextStyle(fontSize: 16),
+                  Divider(height: 0),
+                  ListTile(
+                    leading: Icon(Icons.business),
+                    title: Text('Organization'),
+                    trailing: Text('TrustID Corp'),
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    leading: Icon(Icons.badge),
+                    title: Text('User Role'),
+                    trailing: Text('Compliance Admin'),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 20),
+
+            // 🔷 SECURITY DETAILS
+            Card(
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                children: const [
+                  ListTile(
+                    leading: Icon(Icons.security),
+                    title: Text('Two-Factor Authentication'),
+                    trailing: Text(
+                      'Enabled',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    leading: Icon(Icons.devices),
+                    title: Text('Active Device'),
+                    trailing: Text('Mobile'),
+                  ),
+                  Divider(height: 0),
+                  ListTile(
+                    leading: Icon(Icons.access_time),
+                    title: Text('Last Login'),
+                    trailing: Text('02 Oct 2023'),
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 30),
+
+            // 🔷 ACTION BUTTONS
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 14),
+                  backgroundColor: Colors.blueGrey,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
                   ),
                 ),
+                onPressed: _saveProfile,
+                child: const Text(
+                  'Save Profile',
+                  style: TextStyle(fontSize: 16),
+                ),
               ),
-            ],
-          ),
+            ),
+
+            const SizedBox(height: 10),
+
+            SizedBox(
+              width: double.infinity,
+              child: OutlinedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/verification_status');
+                },
+                child: const Text('View Verification Status'),
+              ),
+            ),
+          ],
         ),
       ),
     );
