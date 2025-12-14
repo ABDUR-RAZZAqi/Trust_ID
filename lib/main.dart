@@ -34,7 +34,6 @@ class TrustidApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Brightness brightness = Brightness.light;
     return MaterialApp(
       title: 'Trust ID',
       darkTheme: darkMode,

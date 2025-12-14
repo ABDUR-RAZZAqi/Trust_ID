@@ -22,6 +22,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
 
   @override
   Widget build(BuildContext context) {
+    Brightness brightness = Theme.of(context).brightness;
     return Scaffold(
       // 🔷 Gradient AppBar
       appBar: AppBar(
@@ -52,12 +53,11 @@ class _NotificationsPageState extends State<NotificationsPage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFFE3F2FD),
-              Color(0xFFFFFFFF),
-            ],
+            colors: brightness == Brightness.light
+                ? [Color(0xFFE3F2FD), Color(0xFFFFFFFF)]
+                : [Colors.black54, Colors.black12],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),

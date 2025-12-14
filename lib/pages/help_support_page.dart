@@ -5,6 +5,7 @@ class HelpSupportPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Brightness brightness = Theme.of(context).brightness;
     return Scaffold(
       // Gradient AppBar (same across app)
       appBar: AppBar(
@@ -29,12 +30,11 @@ class HelpSupportPage extends StatelessWidget {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFFE3F2FD),
-              Color(0xFFFFFFFF),
-            ],
+        decoration:  BoxDecoration(
+           gradient: LinearGradient(
+            colors: brightness == Brightness.light
+                ? [Color(0xFFE3F2FD), Color(0xFFFFFFFF)]
+                : [Colors.black54, Colors.black12],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
           ),
