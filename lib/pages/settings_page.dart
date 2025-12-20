@@ -17,7 +17,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     Brightness brightness = Theme.of(context).brightness;
     return Scaffold(
-      // 🔷 Gradient AppBar
+      //  Gradient AppBar
       appBar: AppBar(
         title: const Text('Settings'),
         centerTitle: true,
@@ -32,7 +32,7 @@ class _SettingsPageState extends State<SettingsPage> {
         ),
       ),
 
-      // 🔷 Gradient Background
+      //  Gradient Background
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -83,7 +83,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
             const SizedBox(height: 20),
 
-            // 🔷 SECURITY SETTINGS
+            //  SECURITY SETTINGS
             Card(
               elevation: 3,
               shape: RoundedRectangleBorder(
@@ -113,7 +113,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
             const SizedBox(height: 20),
 
-            // 🔷 COMPLIANCE & PRIVACY
+            //  COMPLIANCE & PRIVACY
             Card(
               elevation: 3,
               shape: RoundedRectangleBorder(
@@ -148,7 +148,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
             const SizedBox(height: 30),
 
-            // 🔷 ACCOUNT ACTIONS
+            //  ACCOUNT ACTIONS
             Card(
               elevation: 2,
               shape: RoundedRectangleBorder(
@@ -181,7 +181,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
             const SizedBox(height: 30),
 
-            // 🔷 INFO LINKS
+            //  INFO LINKS
             Card(
               elevation: 2,
               shape: RoundedRectangleBorder(

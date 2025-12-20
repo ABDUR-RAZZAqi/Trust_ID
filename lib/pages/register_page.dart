@@ -44,7 +44,7 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     Brightness brightness = Theme.of(context).brightness;
     return Scaffold(
-      // 🔷 Gradient AppBar
+      //  Gradient AppBar
       appBar: AppBar(
         title: const Text('Register'),
         centerTitle: true,
@@ -63,7 +63,7 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
       ),
 
-      // 🔷 Gradient Background
+      //  Gradient Background
       body: Container(
         width: double.infinity,
         height: double.infinity,

@@ -18,7 +18,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     Brightness brightness = Theme.of(context).brightness;
     return Scaffold(
-      // 🔷 Gradient AppBar
+      //  Gradient AppBar
       appBar: AppBar(
         title: const Text('Profile'),
         centerTitle: true,
@@ -37,7 +37,7 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
       ),
 
-      // 🔷 Gradient Background
+      //  Gradient Background
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -55,7 +55,7 @@ class _ProfilePageState extends State<ProfilePage> {
           children: [
             const SizedBox(height: 10),
 
-            // 🔷 PROFILE HEADER
+            //  PROFILE HEADER
             Card(
               elevation: 3,
               shape: RoundedRectangleBorder(
@@ -77,7 +77,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     const SizedBox(height: 16),
                     Text(
-                      'John Doe',
+                      'Razaq Adewunmi',
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium
@@ -85,7 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                     const SizedBox(height: 6),
                     Text(
-                      'john@example.com',
+                      'razaaqayobami@gmail.com',
                       style: TextStyle(color: Colors.grey[600]),
                     ),
                     const SizedBox(height: 20),
@@ -118,7 +118,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
             const SizedBox(height: 20),
 
-            // 🔷 ACCOUNT DETAILS
+            //  ACCOUNT DETAILS
             Card(
               elevation: 2,
               shape: RoundedRectangleBorder(
@@ -155,7 +155,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
             const SizedBox(height: 20),
 
-            // 🔷 SECURITY DETAILS
+            //  SECURITY DETAILS
             Card(
               elevation: 2,
               shape: RoundedRectangleBorder(
@@ -192,7 +192,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
             const SizedBox(height: 30),
 
-            // 🔷 ACTION BUTTONS
+            //  ACTION BUTTONS
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(

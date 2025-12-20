@@ -11,7 +11,7 @@ class VerificationStatusPage extends StatelessWidget {
     const details = 'Your ID was verified on 2023-10-01.';
 
     return Scaffold(
-      // 🔷 Gradient AppBar
+      //  Gradient AppBar
       appBar: AppBar(
         title: const Text('Verification Status'),
         centerTitle: true,
@@ -30,7 +30,7 @@ class VerificationStatusPage extends StatelessWidget {
         ),
       ),
 
-      // 🔷 Gradient Background
+      //  Gradient Background
       body: Container(
         width: double.infinity,
         height: double.infinity,

@@ -13,7 +13,7 @@ class TrustHistoryPage extends StatelessWidget {
     ];
 
     return Scaffold(
-      // 🔷 Gradient AppBar
+      //  Gradient AppBar
       appBar: AppBar(
         title: const Text('Trust History'),
         centerTitle: true,
@@ -32,7 +32,7 @@ class TrustHistoryPage extends StatelessWidget {
         ),
       ),
 
-      // 🔷 Gradient Background
+      //  Gradient Background
       body: Container(
         width: double.infinity,
         height: double.infinity,

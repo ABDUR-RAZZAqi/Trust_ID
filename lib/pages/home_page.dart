@@ -7,7 +7,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final brightness = Theme.of(context).brightness;
 
-    // 🔹 Shared button style (EXACTLY like About Us)
+    // Shared button style
     final ButtonStyle primaryButtonStyle = ElevatedButton.styleFrom(
       padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 14),
       shape: RoundedRectangleBorder(
@@ -40,7 +40,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      // Gradient AppBar
+      // AppBar
       appBar: AppBar(
         title: const Text('Trust ID'),
         centerTitle: true,
@@ -67,10 +67,8 @@ class HomePage extends StatelessWidget {
         ],
       ),
 
-      // Gradient Background
+      // Body
       body: Container(
-        width: double.infinity,
-        height: double.infinity,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: brightness == Brightness.light
@@ -83,11 +81,12 @@ class HomePage extends StatelessWidget {
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
-            // Trust Score Card
+            // ================= TRUST SCORE CARD =================
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Trust Score: 85%',
@@ -96,12 +95,47 @@ class HomePage extends StatelessWidget {
                           .headlineSmall
                           ?.copyWith(fontWeight: FontWeight.bold),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 8),
                     LinearProgressIndicator(
                       value: 0.85,
-                      backgroundColor: Colors.grey[300],
-                      valueColor:
-                          const AlwaysStoppedAnimation(Colors.green),
+                      backgroundColor: Colors.grey.shade300,
+                      valueColor: const AlwaysStoppedAnimation<Color>(
+                        Colors.green,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+
+                    // Business Info
+                    const Text('Business Name: AlphaTech Ltd'),
+                    const Text('Verification Level: High'),
+                    const Text(
+                      'Account Status: Verified',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+
+                    const Divider(height: 24),
+
+                    // Trust Breakdown
+                    const Text(
+                      'Trust Breakdown',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    const Text('✔ Identity Verification'),
+                    const Text('✔ Business Documents'),
+                    const Text('✔ Compliance Check'),
+                    const Text('✔ Activity History'),
+
+                    const SizedBox(height: 12),
+                    const Text(
+                      'Last Updated: 10 Oct 2023',
+                      style: TextStyle(color: Colors.grey, fontSize: 12),
                     ),
                   ],
                 ),
@@ -110,7 +144,7 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Business Verification Requests
+            // ================= BUSINESS VERIFICATIONS =================
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -119,8 +153,7 @@ class HomePage extends StatelessWidget {
                   children: [
                     Row(
                       children: const [
-                        Icon(Icons.business_center,
-                            color: Color.fromARGB(255, 73, 115, 137)),
+                        Icon(Icons.business_center, color: Colors.blueGrey),
                         SizedBox(width: 8),
                         Text(
                           'Business Verifications',
@@ -133,7 +166,7 @@ class HomePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 12),
                     const Text('Pending Requests: 3'),
-                    const Text('Approved: 12'),
+                    const Text('Approved Requests: 12'),
                     const SizedBox(height: 16),
                     SizedBox(
                       width: double.infinity,
@@ -153,7 +186,7 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Trust Analytics Card
+            // ================= TRUST ANALYTICS =================
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -184,9 +217,10 @@ class HomePage extends StatelessWidget {
                     const SizedBox(height: 8),
                     LinearProgressIndicator(
                       value: 0.85,
-                      backgroundColor: Colors.grey[300],
-                      valueColor:
-                          const AlwaysStoppedAnimation(Colors.green),
+                      backgroundColor: Colors.grey.shade300,
+                      valueColor: const AlwaysStoppedAnimation<Color>(
+                        Colors.green,
+                      ),
                     ),
                     const SizedBox(height: 16),
                     SizedBox(
@@ -206,7 +240,7 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 20),
 
-            // Compliance & Audit Logs
+            // ================= COMPLIANCE & AUDITS =================
             Card(
               child: Padding(
                 padding: const EdgeInsets.all(16),
@@ -250,7 +284,7 @@ class HomePage extends StatelessWidget {
 
             const SizedBox(height: 24),
 
-            // Verification Status Button
+            // ================= ID STATUS =================
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
@@ -265,7 +299,7 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      // Gradient Bottom Navigation
+      // Bottom Navigation
       bottomNavigationBar: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -274,8 +308,6 @@ class HomePage extends StatelessWidget {
               Color(0xFF203A43),
               Color(0xFF2C5364),
             ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
           ),
         ),
         child: BottomNavigationBar(

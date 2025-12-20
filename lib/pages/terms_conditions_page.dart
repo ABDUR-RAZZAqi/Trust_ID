@@ -7,7 +7,7 @@ class TermsConditionsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Brightness brightness = Theme.of(context).brightness;
     return Scaffold(
-      // 🔷 Gradient AppBar
+      //Gradient AppBar
       appBar: AppBar(
         title: const Text('Terms & Conditions'),
         centerTitle: true,
@@ -26,7 +26,7 @@ class TermsConditionsPage extends StatelessWidget {
         ),
       ),
 
-      // 🔷 Gradient Background
+      //  Gradient Background
       body: Container(
         width: double.infinity,
         height: double.infinity,
