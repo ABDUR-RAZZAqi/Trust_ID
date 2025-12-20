@@ -21,12 +21,13 @@ final kcolorScheme = ColorScheme.fromSeed(seedColor: Color(0xff3712A5));
 
 void main() {
   runApp(
-    DevicePreview(
-      enabled: true,
-      tools: [...DevicePreview.defaultTools],
-      builder: (context) => TrustidApp(),
-    ),
+    // DevicePreview(
+    //   enabled: true,
+    // tools: [...DevicePreview.defaultTools],
+    // builder: (context) =>
+    TrustidApp(),
   );
+  // );
 }
 
 class TrustidApp extends StatelessWidget {

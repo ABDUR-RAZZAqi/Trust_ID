@@ -9,13 +9,13 @@ class SplashPage extends StatefulWidget {
 }
 
 class _SplashPageState extends State<SplashPage> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/login');
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   Timer(const Duration(seconds: 3), () {
+  //     Navigator.pushReplacementNamed(context, '/login');
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +25,7 @@ class _SplashPageState extends State<SplashPage> {
         height: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Color(0xFF0F2027),
-              Color(0xFF203A43),
-              Color(0xFF2C5364),
-            ],
+            colors: [Color(0xFF0F2027), Color(0xFF203A43), Color(0xFF2C5364)],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
@@ -37,12 +33,8 @@ class _SplashPageState extends State<SplashPage> {
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Icon(
-                Icons.verified_user,
-                size: 110,
-                color: Colors.white,
-              ),
+            children: [
+              Icon(Icons.verified_user, size: 110, color: Colors.white),
               SizedBox(height: 20),
               Text(
                 'Trust ID',
@@ -56,10 +48,14 @@ class _SplashPageState extends State<SplashPage> {
               SizedBox(height: 6),
               Text(
                 'Secure Identity Authentication',
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.white70,
-                ),
+                style: TextStyle(fontSize: 16, color: Colors.white70),
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/login');
+                },
+                child: Text('Get Started'),
               ),
             ],
           ),
