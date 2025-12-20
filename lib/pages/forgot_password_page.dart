@@ -62,81 +62,87 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
 
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                Text(
-                  'Reset Your Password',
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blueGrey[900],
+            padding: const EdgeInsets.all(25.0),
+            child: Card(
+            elevation: 3,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    'Reset Your Password',
+                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blueGrey[900],
+                        ),
+                    textAlign: TextAlign.center,
+                  ),
+              
+                  const SizedBox(height: 10),
+              
+                  const Text(
+                    'Enter your email address and we’ll send you instructions to reset your password.',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 16,
+                      height: 1.5,
+                      color: Colors.black87,
+                    ),
+                  ),
+              
+                  const SizedBox(height: 30),
+              
+                  // Email Field
+                  TextField(
+                    controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      labelText: 'Email Address',
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(12),
                       ),
-                  textAlign: TextAlign.center,
-                ),
-
-                const SizedBox(height: 10),
-
-                const Text(
-                  'Enter your email address and we’ll send you instructions to reset your password.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    height: 1.5,
-                    color: Colors.black87,
-                  ),
-                ),
-
-                const SizedBox(height: 30),
-
-                // Email Field
-                TextField(
-                  controller: _emailController,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    labelText: 'Email Address',
-                    filled: true,
-                    fillColor: Colors.white,
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12),
                     ),
                   ),
-                ),
-
-                const SizedBox(height: 25),
-
-                // Reset Button
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 40,
-                      vertical: 14,
+              
+                  const SizedBox(height: 25),
+              
+                  // Reset Button
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 40,
+                        vertical: 14,
+                      ),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      backgroundColor: Colors.blueGrey[800],
                     ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
+                    onPressed: _resetPassword,
+                    child: const Text(
+                      'Reset Password',
+                      style: TextStyle(fontSize: 16),
                     ),
-                    backgroundColor: Colors.blueGrey[800],
                   ),
-                  onPressed: _resetPassword,
-                  child: const Text(
-                    'Reset Password',
-                    style: TextStyle(fontSize: 16),
+              
+                  const SizedBox(height: 20),
+              
+                  // Back to Login
+                  TextButton(
+                    key: GlobalKey(),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/login');
+                    },
+                    child: const Text(
+                      'Back to Login',
+                      style: TextStyle(fontSize: 15, color: Colors.blueGrey),
+                    ),
                   ),
-                ),
-
-                const SizedBox(height: 20),
-
-                // Back to Login
-                TextButton(
-                  key: GlobalKey(),
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/login');
-                  },
-                  child: const Text(
-                    'Back to Login',
-                    style: TextStyle(fontSize: 15),
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
